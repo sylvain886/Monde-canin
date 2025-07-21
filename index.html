@@ -2,17 +2,89 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Connexion</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    body.connexion-body {
+      background-image: url('images/Dogs.jfif'); /* ✅ image à la racine du dossier 'images' */
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .connexion-container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .connexion-container h2 {
+      margin-bottom: 20px;
+    }
+
+    .connexion-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    .connexion-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: #444;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .connexion-container button:hover {
+      background-color: #222;
+    }
+
+    .connexion-container a {
+      text-decoration: none;
+      color: #333;
+      font-size: 0.95em;
+    }
+
+    .connexion-container a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body class="connexion-body">
   <div class="connexion-container">
     <h2>Connexion</h2>
-<form onsubmit="connexion(event)">
-  <input type="email" id="email" placeholder="Email" required>
-  <input type="password" id="motdepasse" placeholder="Mot de passe" required>
-  <button type="submit">Se connecter</button>
-</form>
+    <form onsubmit="connexion(event)">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="motdepasse" placeholder="Mot de passe" required>
+      <button type="submit">Se connecter</button>
+    </form>
     <p><a href="creation.html">Créer un compte</a></p>
   </div>
   <script src="index.js"></script>
