@@ -17,15 +17,17 @@
       font-family: Arial, sans-serif;
     }
 
-    body.connexion-body {
-      background-image: url('images/Dogs.jfif'); /* ✅ image à la racine du dossier 'images' */
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.connexion-body, .creation-body {
+  background-image: url("images/Dogs.jfif"); /* pas besoin de ../ car le HTML est à la racine */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
     .connexion-container {
       background-color: rgba(255, 255, 255, 0.9);
