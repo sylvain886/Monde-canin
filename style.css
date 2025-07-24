@@ -557,7 +557,6 @@ body, html {
 }
 
 .connexion-body, .creation-body {
-  background-image: url("images/Dogs.jfif");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -623,7 +622,6 @@ body, html {
 }
 
 .welcome-container {
-  background-image: url('images/bienvenue.jpg');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -664,7 +662,6 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f5f5f5;
 }
 
 .creation-container {
