@@ -13,7 +13,7 @@ function connexion(event) {
 
   if (email === utilisateur.email && motdepasse === utilisateur.motdepasse) {
     alert("Connexion réussie !");
-    window.location.href = "bienvenue.html"; // Redirection vers la page de bienvenue
+    window.location.href = "bienvenue.html"; 
   } else {
     alert("Identifiants incorrects !");
   }

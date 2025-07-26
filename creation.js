@@ -12,10 +12,6 @@ function creerCompte(event) {
     return false;
   }
 
-  // Simulation d'envoi de SMS de vérification
-  alert("Un message de vérification a été envoyé à " + telephone);
-
-  // Enregistrer les infos dans localStorage
   localStorage.setItem("utilisateur", JSON.stringify({
     nom, prenom, telephone, email, motdepasse
   }));
