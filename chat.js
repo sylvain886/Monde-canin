@@ -30,7 +30,7 @@ function afficherMessage(message, type, isHtml = false) {
 
 function genererReponse(message) {
   if (message.includes("bonjour") || message.includes("salut")) {
-    return { message: "Bonjour 👋 et bienvenue chez Univers Canin ! Je suis GUIDEON l’assistant virtuel de SYLVAIN, prêt à vous guider dans l’univers des chiens 🐶 ! Que puis-je faire pour vous aujourd’hui ?", isHtml: false };
+    return { message: "Bonjour 👋 et bienvenue chez Univers Canin ! Je suis Guideon l’assistant virtuel de SYLVAIN, prêt à vous guider dans l’univers des chiens 🐶 ! Que puis-je faire pour vous aujourd’hui ?", isHtml: false };
   }
   if (message.includes("alimentation") || message.includes("croquettes")) {
     return { message: "Pour bien nourrir votre chien, privilégiez des croquettes riches en protéines animales.", isHtml: false };
@@ -39,7 +39,7 @@ function genererReponse(message) {
     return { message: "Il existe plusieurs races : berger allemand, labrador, husky, etc. Consultez notre page Races 🐕.", isHtml: false };
   }
   if (message.includes("humain") || message.includes("parler") || message.includes("personne")) {
-    // Retourner un bouton WhatsApp en HTML
+
     const html = `
       Vous pouvez discuter avec un conseiller :
       <br>

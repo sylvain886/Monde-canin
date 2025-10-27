@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Races - Monde Canin</title>
+    <title>Races - MK CANINE</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
 <header>
-  <img src="Images/dd6823d4-6b3b-463d-9b35-f7f3df9ba9bb.jfif" alt="Logo du site" class="logo">
+  <img src="Images/MK CANINE.jpeg" alt="Logo du site" class="logo">
 </header>
 
 <div class="param-container">
   <button id="param-button">☰</button>
   <ul id="param-menu" class="param-menu hidden">
-    <li><a href="accueil.html">🏠 Accueil</a></li>
+   <li><a href="accueil.html">🏠 Accueil</a></li>
     <li><a href="races.html">🐶 Races</a></li>
     <li><a href="dressage.html">🐕 Dressage</a></li>
     <li><a href="alimentation.html">🍽️ Alimentation</a></li>
+    <li><a href="produit.html">🛒 Produits</a></li>
     <li><a href="chat.html">💬 Chat</a></li>
+    <li><a href="panier.html">📲 Panier</a></li>
     <li><a href="contact.html">📞 Contact</a></li>
     <li><a href="#" id="deconnexion-link">🚪 Déconnexion</a></li>
   </ul>
@@ -373,7 +375,7 @@
   const paramMenu = document.getElementById("param-menu");
   const deconnexionLink = document.getElementById("deconnexion-link");
 
-  // Affiche ou cache le menu quand on clique sur le bouton
+
   paramButton.addEventListener("click", function (e) {
     e.stopPropagation();
     paramMenu.classList.toggle("hidden");
@@ -384,18 +386,18 @@
     }
   });
 
-  // Ferme le menu si on clique en dehors
+
   window.addEventListener("click", function () {
     paramMenu.classList.add("hidden");
     paramMenu.style.display = "none";
   });
 
-  // Empêche la fermeture si on clique dans le menu
+
   paramMenu.addEventListener("click", function (e) {
     e.stopPropagation();
   });
 
-  // Gère la déconnexion
+
   deconnexionLink.addEventListener("click", function (e) {
     e.preventDefault();
     sessionStorage.removeItem("connected");
@@ -404,6 +406,6 @@
 </script>
 
     <footer>
-        <p>&copy; 2025 Monde Canin - Tous droits réservés</p>
+        <p>&copy; 2025 MK CANINE - Tous droits réservés</p>
     </footer>
 </body>

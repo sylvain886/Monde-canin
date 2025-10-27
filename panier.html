@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Panier</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .panier-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    .total {
+      font-weight: bold;
+      margin-top: 20px;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="Images/MK CANINE.jpeg" alt="Logo du site" class="logo">
+  </header>
+<div class="param-container">
+    <button id="param-button">☰</button>
+    <ul id="param-menu" class="param-menu hidden">
+      <li><a href="accueil.html">🏠 Accueil</a></li>
+      <li><a href="races.html">🐶 Races</a></li>
+      <li><a href="dressage.html">🐕 Dressage</a></li>
+      <li><a href="alimentation.html">🍽️ Alimentation</a></li>
+      <li><a href="produit.html">🛒 Produits</a></li>
+      <li><a href="chat.html">💬 Chat</a></li>
+      <li><a href="panier.html">📲 Panier</a></li>
+      <li><a href="contact.html">📞 Contact</a></li>
+      <li><a href="#" id="deconnexion-link">🚪 Déconnexion</a></li>
+    </ul>
+  </div>
+  <h2>Votre panier</h2>
+  <div id="liste-panier"></div>
+  <div class="total" id="total"></div>
+
+  <div class="boutons-panier">
+    <button onclick="window.location.href='produit.html'">Voir nos produits</button>
+    <button onclick="viderPanier()">Vider le panier</button>
+    <button onclick="commander()">Commander</button>
+  </div>
+
+ <script>
+  function afficherPanier() {
+    const panier = JSON.parse(localStorage.getItem("panier")) || [];
+    const conteneur = document.getElementById("liste-panier");
+    const totalDiv = document.getElementById("total");
+    conteneur.innerHTML = "";
+    let total = 0;
+
+    if (panier.length === 0) {
+      conteneur.innerHTML = "<p>Votre panier est vide.</p>";
+      totalDiv.textContent = "";
+      return;
+    }
+
+    panier.forEach((item, index) => {
+      total += item.prix * item.quantite;
+      conteneur.innerHTML += `
+        <div class="panier-item">
+          <span>${item.nom}</span>
+          <div>
+            <button onclick="retirerUn(${index})">➖</button>
+            <span> x${item.quantite}</span>
+            <button onclick="ajouterUn(${index})">➕</button>
+          </div>
+          <span>${item.prix * item.quantite} $</span>
+          <button onclick="supprimerProduit(${index})">❌</button>
+        </div>
+      `;
+    });
+
+    totalDiv.textContent = "Total : " + total + " $";
+  }
+
+  // 🔹 Retirer une unité
+  function retirerUn(index) {
+    let panier = JSON.parse(localStorage.getItem("panier")) || [];
+    if (panier[index].quantite > 1) {
+      panier[index].quantite--;
+    } else {
+      panier.splice(index, 1);
+    }
+    localStorage.setItem("panier", JSON.stringify(panier));
+    afficherPanier();
+  }
+
+  // 🔹 Ajouter une unité
+  function ajouterUn(index) {
+    let panier = JSON.parse(localStorage.getItem("panier")) || [];
+    panier[index].quantite++;
+    localStorage.setItem("panier", JSON.stringify(panier));
+    afficherPanier();
+  }
+
+  // 🔹 Supprimer complètement le produit
+  function supprimerProduit(index) {
+    let panier = JSON.parse(localStorage.getItem("panier")) || [];
+    panier.splice(index, 1);
+    localStorage.setItem("panier", JSON.stringify(panier));
+    afficherPanier();
+  }
+
+  function viderPanier() {
+    localStorage.removeItem("panier");
+    afficherPanier();
+  }
+
+  function commander() {
+    alert("✅ Ce système est actuellement inisponible contacter nous aux +243 977895886 !");
+    viderPanier();
+  }
+
+  afficherPanier();
+</script>
+
+<script>
+  const paramButton = document.getElementById("param-button");
+  const paramMenu = document.getElementById("param-menu");
+  const deconnexionLink = document.getElementById("deconnexion-link");
+
+  paramButton.addEventListener("click", function (e) {
+    e.stopPropagation();
+    paramMenu.classList.toggle("hidden");
+    if (paramMenu.classList.contains("hidden")) {
+      paramMenu.style.display = "none";
+    } else {
+      paramMenu.style.display = "block";
+    }
+  });
+
+  window.addEventListener("click", function () {
+    paramMenu.classList.add("hidden");
+    paramMenu.style.display = "none";
+  });
+
+  paramMenu.addEventListener("click", function (e) {
+    e.stopPropagation();
+  });
+
+  deconnexionLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    sessionStorage.removeItem("connected");
+    window.location.href = "index.html";
+  });
+</script>
+</body>
+</html>

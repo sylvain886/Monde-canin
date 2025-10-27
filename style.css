@@ -434,12 +434,12 @@ h1, h2, p {
   opacity: 0.85;
 }
 .main-container, .connexion-container, .creation-container, .welcome-container {
-  border-radius: 15px; /* arrondi des coins */
-  background-color: white; /* fond blanc */
+  border-radius: 15px; 
+  background-color: white;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* ombre légère */
-  max-width: 900px; /* limite la largeur sur grand écran */
-  margin: 20px auto; /* centre horizontalement avec marge verticale */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+  max-width: 900px; 
+  margin: 20px auto; 
 }
 * {
   box-sizing: border-box;
@@ -653,7 +653,7 @@ body, html {
 .welcome-container a:hover {
   background-color: #333;
 }
-/* Styles pour la page création de compte */
+
 .creation-body {
   margin: 0;
   padding: 0;
@@ -810,4 +810,328 @@ footer {
   text-align: center;
   padding: 15px;
   margin-top: 30px;
+}
+.produits-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.produit {
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+  background-color: #f8f8f8;
+}
+
+.produit img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.panier-btn, .boutons-panier button {
+  margin: 10px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.boutons-panier {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.item-panier {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+/* ----- SECTION PRODUITS ----- */
+.produits-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px;
+}
+
+/* Chaque produit */
+.produit {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 250px; /* même taille pour tous */
+  height: 380px; /* fixe la hauteur pour uniformiser */
+  text-align: center;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet au survol */
+.produit:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Images produits */
+.produit img {
+  width: 100%;
+  height: 180px; /* même taille d'image */
+  object-fit: cover; /* pour éviter la déformation */
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Titres et prix */
+.produit h3 {
+  font-size: 1.2em;
+  margin: 5px 0;
+}
+
+.produit p {
+  font-size: 1em;
+  color: #333;
+}
+
+/* Bouton ajouter au panier */
+.produit button {
+  padding: 10px;
+  background-color: #1e88e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.produit button:hover {
+  background-color: #0d47a1;
+}
+
+/* Lien vers panier */
+.panier-btn {
+  display: block;
+  margin: 30px auto;
+  padding: 12px 25px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.panier-btn:hover {
+  background-color: #000;
+}
+.param-menu {
+  display: block; /* ou flex selon ton design */
+}
+
+.param-menu.hidden {
+  display: none;
+}
+/* --- Section principale du panier --- */
+.panier-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 25px;
+}
+
+/* --- Titre --- */
+.panier-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* --- Liste des produits dans le panier --- */
+.panier-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding: 15px 0;
+}
+
+.panier-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+/* --- Informations du produit --- */
+.panier-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panier-info h3 {
+  flex: 2;
+  font-size: 16px;
+  color: #333;
+  margin: 0 10px;
+}
+
+.panier-info input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin: 0 10px;
+}
+
+.panier-info span {
+  flex: 1;
+  text-align: right;
+  font-weight: bold;
+  color: #1a73e8;
+}
+
+/* --- Bouton supprimer un article --- */
+.panier-item button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.panier-item button:hover {
+  background-color: #c62828;
+}
+
+/* --- Total du panier --- */
+.total {
+  text-align: right;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #333;
+}
+
+/* --- Boutons d'action --- */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.actions button {
+  flex: 1;
+  min-width: 150px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s;
+}
+
+/* --- Couleurs des boutons --- */
+.actions .btn-produits {
+  background-color: #1a73e8;
+}
+
+.actions .btn-produits:hover {
+  background-color: #125bb5;
+}
+
+.actions .btn-vider {
+  background-color: #f44336;
+}
+
+.actions .btn-vider:hover {
+  background-color: #c62828;
+}
+
+.actions .btn-commander {
+  background-color: #4CAF50;
+}
+
+.actions .btn-commander:hover {
+  background-color: #3e8e41;
+}
+
+/* --- Message de confirmation --- */
+.message-confirmation {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1000;
+}
+
+.message-confirmation.active {
+  opacity: 1;
+}
+.message-confirmation {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1000;
+  font-weight: 500;
+}
+
+.message-confirmation.active {
+  opacity: 1;
+}
+.confirmation-message {
+  position: fixed;
+  top: 60px; /* juste sous le bouton menu */
+  left: 10px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(-10px);
+  z-index: 1000;
+}
+
+.confirmation-message.show {
+  opacity: 1;
+  transform: translateY(0);
 }

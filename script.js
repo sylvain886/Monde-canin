@@ -37,3 +37,4 @@ setTimeout(() => {
   bot.textContent = "Assistant : Merci pour votre message, nous vous répondrons bientôt.";
   document.getElementById("messages").appendChild(bot);
 }, 1000);
+

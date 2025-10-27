@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Produits</title>
+  <link rel="stylesheet" href="style.css">
+  <style></style>
+
+</head>
+<body>
+  <header>
+    <img src="Images/MK CANINE.jpeg" alt="Logo du site" class="logo">
+  </header>
+
+  <div class="param-container">
+    <button id="param-button">☰</button>
+    <ul id="param-menu" class="param-menu hidden">
+      <li><a href="accueil.html">🏠 Accueil</a></li>
+      <li><a href="races.html">🐶 Races</a></li>
+      <li><a href="dressage.html">🐕 Dressage</a></li>
+      <li><a href="alimentation.html">🍽️ Alimentation</a></li>
+      <li><a href="produit.html">🛒 Produits</a></li>
+      <li><a href="chat.html">💬 Chat</a></li>
+      <li><a href="panier.html">📲 Panier</a></li>
+      <li><a href="contact.html">📞 Contact</a></li>
+      <li><a href="#" id="deconnexion-link">🚪 Déconnexion</a></li>
+    </ul>
+  </div>
+
+  <div class="produits-container">
+    <div class="produit">
+      <img src="images/gants à vendre.jpeg" alt="Gants dressage">
+      <h3>Gants dressage</h3>
+      <p>Prix : 15 $</p>
+      <button onclick="ajouterAuPanier('Gants dressage', 15)">Ajouter au panier</button>
+    </div>
+
+    <div class="produit">
+      <img src="images/male berger.jpeg" alt="Friandises pour chien">
+      <h3>Male berger Allemand </h3>
+      <p>Prix : 650 $</p>
+      <button onclick="ajouterAuPanier('Male Berger Allemand', 650)">Ajouter au panier</button>
+    </div>
+
+    <div class="produit">
+      <img src="images/male bully (1).jpeg" alt="Gamelle en inox">
+      <h3>Male Bully Merle</h3>
+      <p>Prix : 800 $</p>
+      <button onclick="ajouterAuPanier('Male Bully Merle', 800)">Ajouter au panier</button>
+    </div>
+  </div>
+
+  <a href="panier.html" class="panier-btn">Voir le panier</a>
+
+  <!-- ✅ Message -->
+  <div id="confirmation">Produit ajouté au panier ✅</div>
+
+  <script>
+    function ajouterAuPanier(nom, prix) {
+      let panier = JSON.parse(localStorage.getItem("panier")) || [];
+      const produit = panier.find(p => p.nom === nom);
+
+      if (produit) {
+        produit.quantite++;
+      } else {
+        panier.push({ nom, prix, quantite: 1 });
+      }
+
+      localStorage.setItem("panier", JSON.stringify(panier));
+
+      // ✅ Afficher le message
+      const msg = document.getElementById("confirmation");
+      msg.style.opacity = 1;
+      setTimeout(() => msg.style.opacity = 0, 2000);
+    }
+  </script>
+
+ <script>
+  const paramButton = document.getElementById("param-button");
+  const paramMenu = document.getElementById("param-menu");
+  const deconnexionLink = document.getElementById("deconnexion-link");
+
+
+  paramButton.addEventListener("click", function (e) {
+    e.stopPropagation();
+    paramMenu.classList.toggle("hidden");
+    if (paramMenu.classList.contains("hidden")) {
+      paramMenu.style.display = "none";
+    } else {
+      paramMenu.style.display = "block";
+    }
+  });
+
+
+  window.addEventListener("click", function () {
+    paramMenu.classList.add("hidden");
+    paramMenu.style.display = "none";
+  });
+
+
+  paramMenu.addEventListener("click", function (e) {
+    e.stopPropagation();
+  });
+
+
+  deconnexionLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    sessionStorage.removeItem("connected");
+    window.location.href = "index.html";
+  });
+</script>
+<!-- Message de confirmation -->
+<div id="confirmation" class="message-confirmation"></div>
+
+<script>
+  // ✅ Script du panier + message de confirmation
+  function ajouterAuPanier(nom, prix) {
+    let panier = JSON.parse(localStorage.getItem("panier")) || [];
+    const produitExistant = panier.find(p => p.nom === nom);
+    if (produitExistant) {
+      produitExistant.quantite += 1;
+    } else {
+      panier.push({ nom, prix, quantite: 1 });
+    }
+    localStorage.setItem("panier", JSON.stringify(panier));
+    afficherMessage(`${nom} ajouté au panier ✅`);
+  }
+
+  function afficherMessage(texte) {
+    const message = document.getElementById("confirmation");
+    message.textContent = texte;
+    message.classList.add("active");
+    setTimeout(() => message.classList.remove("active"), 2000);
+  }
+</script>
+
+
+</body>
+</html>
